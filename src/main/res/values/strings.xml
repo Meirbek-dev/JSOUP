@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BMK JSOUP</string>
+    <string name="loading">Loading Data…</string>
+    <string name="update">Update</string>
+    <string name="no_data">No Data…</string>
+    <string name="error">Error!</string>
+</resources>
