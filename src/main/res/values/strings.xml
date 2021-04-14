@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BMK JSOUP</string>
+    <string name="app_name">ТОП 250 Сериалов</string>
     <string name="loading">Loading Data…</string>
     <string name="update">Update</string>
     <string name="no_data">No Data…</string>

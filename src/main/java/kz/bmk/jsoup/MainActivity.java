@@ -51,15 +51,10 @@ public class MainActivity extends AppCompatActivity {
                         textView.setText(rates);
                     } else {
                         textView.setText("");
-                        textView.append("Нет данных!" + "\n");
-                        textView.append("Проверьте доступность Интернета");
+                        textView.append("Нет данных!" + "\nПроверьте доступность Интернета");
                     }
                 }
             });
-
         }
-        // ------------------------------------------------------------------------------------
-
     }
-
 }
