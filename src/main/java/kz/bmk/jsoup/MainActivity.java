@@ -19,36 +19,35 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
 
-        JSOUPRatesTask task = new JSOUPRatesTask(); // Создание потока определения котировок
+        JSOUPShowsTask task = new JSOUPShowsTask(); // Создание потока определения котировок
         task.execute(); // Активация потока
     }
 
     public void onClick(View view) {
-        new JSOUPRatesTask().execute(); // Создание и активация потока определения котировок
+        new JSOUPShowsTask().execute(); // Создание и активация потока определения котировок
     }
 
     // Класс отдельного асинхронного потока
     @SuppressLint("StaticFieldLeak")
-    private class JSOUPRatesTask extends AsyncTask<String, Void, String> {
+    private class JSOUPShowsTask extends AsyncTask<String, Void, String> {
 
         // Тут реализуем фоновую асинхронную загрузку данных, требующих много времени
         @Override
         protected String doInBackground(String... params) {
-            return RatesReader.getRatesData(); // Получаем данные котировок
+            return ShowsReader.getShowsData();
         }
-        // ----------------------------------------------------------------------------
 
         // Тут реализуем что нужно сделать после окончания загрузки данных
         @Override
-        protected void onPostExecute(final String rates) {
-            super.onPostExecute(rates);
+        protected void onPostExecute(final String shows) {
+            super.onPostExecute(shows);
 
             // Выдаем данные о котировках в компонент
             textView.post(new Runnable() { //  с использованием синхронизации UI
                 @Override
                 public void run() {
-                    if (rates != null) {
-                        textView.setText(rates);
+                    if (shows != null) {
+                        textView.setText(shows);
                     } else {
                         textView.setText("");
                         textView.append("Нет данных!" + "\nПроверьте доступность Интернета");
